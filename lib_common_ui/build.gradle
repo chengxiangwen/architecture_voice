@@ -1,0 +1,69 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+def pomName = this.getName()
+def pomVersion = '1.0.0-SNAPSHOT'
+def pomDescription = 'the common_ui library for all projects'
+
+//configurations.all {
+//    resolutionStrategy.eachDependency {
+//        DependencyResolveDetails details ->
+//            def requested = details.requested
+//            if (requested.group == 'com.android.support') {
+//                if (!requested.name.startsWith("multidex")) {
+//                    details.useVersion '29.0.0'
+//                }
+//            }
+//    }
+//}
+android {
+    compileSdkVersion this.rootProject.android.compileSdkVersion
+    defaultConfig {
+        minSdkVersion this.rootProject.android.minSdkVersion
+        targetSdkVersion this.rootProject.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly rootProject.depsLibs.appcompat
+    //glide相关依赖
+    implementation rootProject.depsLibs.glide
+    annotationProcessor rootProject.depsLibs.glidecompiler
+    //占位主工程rxjava
+    compileOnly rootProject.depsLibs.rxjava
+    compileOnly rootProject.depsLibs.rxandroid
+    compileOnly rootProject.depsLibs.recyclerview
+    //可以用arouter去掉此依赖
+    compileOnly project(':lib_image_loader')
+
+}
+uploadArchives {
+    repositories {
+        mavenDeployer{
+            repository(url: NEXUS_REPOSITORY_URL){
+                authentication(userName: NEXUS_USERNAME,
+                        password:NEXUS_PASSWOED)
+            }
+            pom.project{
+                name pomName
+                version pomVersion
+                description pomDescription
+                artifactId  pomVersion
+                groupId POM_GROUPID
+                packaging POM_PACKGING
+            }
+        }
+    }
+}

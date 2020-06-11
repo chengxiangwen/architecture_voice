@@ -1,0 +1,40 @@
+package com.josecheng.lib_audio.app;
+
+import android.app.Activity;
+import android.content.Context;
+
+import com.josecheng.lib_audio.mediaplayer.core.AudioController;
+import com.josecheng.lib_audio.mediaplayer.core.MusicService;
+import com.josecheng.lib_audio.mediaplayer.db.GreenDaoHelper;
+import com.josecheng.lib_audio.mediaplayer.model.AudioBean;
+import com.josecheng.lib_audio.mediaplayer.view.MusicPlayerActivity;
+
+import java.util.ArrayList;
+
+/**
+ * 唯一与外界通信的帮助类
+ */
+public  final class AudioHelper {
+
+    private static Context mContext;
+
+    //SDK全局Context, 供子模块用
+    public static void init(Context context){
+        mContext = context;
+        //初始化本地数据库
+        GreenDaoHelper.initDatabase();
+    }
+
+    //外部启动MusicService方法
+    public static void startMusicService(ArrayList<AudioBean> audios) {
+        MusicService.startMusicService(audios);
+    }
+    public static void addAudio(Activity activity, AudioBean bean) {
+        AudioController.getInstance().addAudio(bean);
+        MusicPlayerActivity.start(activity);
+    }
+
+    public static Context getContext(){
+        return mContext;
+    }
+}

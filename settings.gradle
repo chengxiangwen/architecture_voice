@@ -1,4 +1,4 @@
-include ':architecture_voice'
+include ':architecture_voice', ':ft_login'
 
 include ':lib_audio'
 

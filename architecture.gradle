@@ -2,6 +2,7 @@ ext{
     android = [
             applicationId     : "com.josecheng.architecture_voice",
             compileSdkVersion : 29,
+            buildToolsVersion: "29.0.0",
             minSdkVersion     : 19,
             targetSdkVersion  : 29,
             versionCode       : 1,
@@ -30,7 +31,7 @@ ext{
     depsLibs = [
             appcompat      : 'androidx.appcompat:appcompat:1.0.0',
             magicindicator : "com.github.hackware1993:MagicIndicator:${depsVersion.magicindicator}",
-            //  constraint     : "androidx.constraintlayout:constraintlayout:${depsVersion.constraint}",
+            constraint     : "androidx.constraintlayout:constraintlayout:${depsVersion.constraint}",
             recyclerview   : 'androidx.recyclerview:recyclerview:1.0.0',
             okhttp         : "com.squareup.okhttp3:okhttp:${depsVersion.okhttp}",
             gson           : "com.google.code.gson:gson:${depsVersion.gson}",

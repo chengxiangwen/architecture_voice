@@ -18,10 +18,9 @@ import com.josecheng.lib_audio.app.AudioHelper;
 import com.josecheng.lib_audio.mediaplayer.model.AudioBean;
 import com.josecheng.architecture_voice.R;
 import com.josecheng.architecture_voice.model.CHANNEL;
-import com.josecheng.architecture_voice.model.user.LoginEvent;
-import com.josecheng.architecture_voice.utils.UserManager;
 import com.josecheng.architecture_voice.view.home.adapter.HomePagerAdapter;
-import com.josecheng.architecture_voice.view.login.LoginActivity;
+import com.josecheng.lib_base.service.ft_login.model.LoginEvent;
+import com.josecheng.lib_base.service.ft_login.service.impl.LoginImpl;
 import com.josecheng.lib_common_ui.base.BaseActivity;
 import com.josecheng.lib_image_loader.app.ImageLoaderManager;
 
@@ -153,11 +152,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.unloggin_layout:
-                if (!UserManager.getInstance().hasLogin()){
-                    LoginActivity.start(this);
-                }else {
-                    mDrawLayout.closeDrawer(Gravity.LEFT);
-                }
+                    if (!LoginImpl.getInstance().hasLogin()) {
+                        LoginImpl.getInstance().login(this);
+                    } else {
+                        mDrawLayout.closeDrawer(Gravity.LEFT);
+                    }
                 break;
             case R.id.home_qrcode:
                 if (hasPermission(Constant.HARDWEAR_CAMERA_PERMISSION)) {
@@ -199,7 +198,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         avatrImageView.setVisibility(View.VISIBLE);
         ImageLoaderManager.getInstance()
                 .displayImageForCircle(avatrImageView,
-                        UserManager.getInstance().getUser().data.photoUrl);
+                        LoginImpl.getInstance().getUserInfo().data.photoUrl);
     }
 
     @Override

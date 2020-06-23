@@ -12,7 +12,6 @@ import com.josecheng.architecture_video.vedioplayer.core.VideoAdContext;
 import com.josecheng.architecture_voice.R;
 import com.josecheng.architecture_voice.model.friend.FriendBodyValue;
 import com.josecheng.architecture_voice.utils.UserManager;
-import com.josecheng.architecture_voice.view.login.LoginActivity;
 import com.josecheng.lib_audio.app.AudioHelper;
 import com.josecheng.lib_common_ui.MultiImageViewLayout;
 import com.josecheng.lib_common_ui.recyclerview.MultiItemTypeAdapter;
@@ -105,7 +104,8 @@ public class FriendRecyclerAdapter extends MultiItemTypeAdapter {
                 public void onClick(View v) {
                     if (!UserManager.getInstance().hasLogined()) {
                         //goto login
-                        LoginActivity.start(mContext);
+                       // LoginImpl.getInstance().login(mContext);
+                       // LoginActivity.start(mContext);
                     }
                 }
             });
@@ -155,7 +155,8 @@ public class FriendRecyclerAdapter extends MultiItemTypeAdapter {
                 public void onClick(View v) {
                     if (!UserManager.getInstance().hasLogined()) {
                         //goto login
-                        LoginActivity.start(mContext);
+                       // LoginImpl.getInstance().login(mContext);
+                        //LoginActivity.start(mContext);
                     }
                 }
             });
@@ -197,7 +198,8 @@ public class FriendRecyclerAdapter extends MultiItemTypeAdapter {
                 public void onClick(View v) {
                     if (!UserManager.getInstance().hasLogined()) {
                         //goto login
-                        LoginActivity.start(mContext);
+                       // LoginImpl.getInstance().login(mContext);
+                        //LoginActivity.start(mContext);
                     }
                 }
             });

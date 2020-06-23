@@ -55,7 +55,7 @@ dependencies {
     //基础UI库
     implementation project(':lib_common_ui')
     //网络请求库
-    //implementation project(':lib_network')
+    implementation project(':lib_network')
     //图片加载库
     implementation project(':lib_image_loader')
     //音频播放器组
@@ -71,5 +71,7 @@ dependencies {
     implementation project(':lib_qrcode')
     //webview库
     implementation project(':lib_webview')
+    //login模块
+    implementation project(':ft_login')
 
 }

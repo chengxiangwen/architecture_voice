@@ -8,6 +8,8 @@ import com.josecheng.lib_audio.mediaplayer.core.MusicService;
 import com.josecheng.lib_audio.mediaplayer.db.GreenDaoHelper;
 import com.josecheng.lib_audio.mediaplayer.model.AudioBean;
 import com.josecheng.lib_audio.mediaplayer.view.MusicPlayerActivity;
+import com.josecheng.lib_audio.utils.Utils;
+import com.josecheng.lib_base.service.ft_audio.model.CommonAudioBean;
 
 import java.util.ArrayList;
 
@@ -26,12 +28,20 @@ public  final class AudioHelper {
     }
 
     //外部启动MusicService方法
-    public static void startMusicService(ArrayList<AudioBean> audios) {
-        MusicService.startMusicService(audios);
+    public static void startMusicService(ArrayList<CommonAudioBean> audios) {
+        MusicService.startMusicService(Utils.convertFrom(audios));
     }
-    public static void addAudio(Activity activity, AudioBean bean) {
-        AudioController.getInstance().addAudio(bean);
+    public static void addAudio(Activity activity, CommonAudioBean bean) {
+        AudioController.getInstance().addAudio(Utils.convertFrom(bean));
         MusicPlayerActivity.start(activity);
+    }
+
+    public static void pauseAudio() {
+        AudioController.getInstance().pause();
+    }
+
+    public static void resumeAudio() {
+        AudioController.getInstance().resume();
     }
 
     public static Context getContext(){

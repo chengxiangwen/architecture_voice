@@ -1,15 +1,14 @@
-package com.josecheng.architecture_voice.view.home.adapter;
+package com.josecheng.ft_home.view.home.adapter;
 
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.josecheng.architecture_voice.view.discory.DiscoryFragment;
-import com.josecheng.architecture_voice.view.friend.FriendFragment;
-import com.josecheng.architecture_voice.view.mine.MineFragment;
-
-import com.josecheng.architecture_voice.model.CHANNEL;
+import com.josecheng.ft_home.model.CHANNEL;
+import com.josecheng.ft_home.view.discory.DiscoryFragment;
+import com.josecheng.ft_home.view.friend.FriendFragment;
+import com.josecheng.ft_home.view.mine.MineFragment;
 
 /**
  * 首页ViewPagerAdapter

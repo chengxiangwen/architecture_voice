@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.josecheng.architecture_voice.R;
-import com.josecheng.architecture_voice.view.home.HomeActivity;
+import com.josecheng.lib_base.service.ft_home.service.impl.HomeImpl;
 import com.josecheng.lib_common_ui.base.BaseActivity;
 import com.josecheng.lib_common_ui.base.constant.Constant;
 import com.josecheng.lib_pullalive.app.AliveJobService;
@@ -16,8 +16,9 @@ public class LoadingActivity extends BaseActivity {
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            startActivity(new Intent(LoadingActivity.this, HomeActivity.class));
-            finish();
+            HomeImpl.getInstance().startHomActivity(LoadingActivity.this);
+            //startActivity(new Intent(LoadingActivity.this, HomeActivity.class));
+            //finish();
         }
     };
 

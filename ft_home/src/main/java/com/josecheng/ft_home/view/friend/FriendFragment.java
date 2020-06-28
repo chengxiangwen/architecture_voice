@@ -1,4 +1,4 @@
-package com.josecheng.architecture_voice.view.friend;
+package com.josecheng.ft_home.view.friend;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.josecheng.architecture_voice.R;
-import com.josecheng.architecture_voice.api.MockData;
-import com.josecheng.architecture_voice.api.RequestCenter;
-import com.josecheng.architecture_voice.model.friend.BaseFriendModel;
-import com.josecheng.architecture_voice.model.friend.FriendBodyValue;
-import com.josecheng.architecture_voice.view.friend.adapter.FriendRecyclerAdapter;
+import com.josecheng.ft_home.R;
+import com.josecheng.ft_home.api.MockData;
+import com.josecheng.ft_home.api.RequestCenter;
+import com.josecheng.ft_home.model.friend.BaseFriendModel;
+import com.josecheng.ft_home.model.friend.FriendBodyValue;
+import com.josecheng.ft_home.view.friend.adapter.FriendRecyclerAdapter;
 import com.josecheng.lib_common_ui.recyclerview.wrapper.LoadMoreWrapper;
 import com.josecheng.lib_network.listener.DisposeDataListener;
 import com.josecheng.lib_network.utils.ResponseEntityToModule;

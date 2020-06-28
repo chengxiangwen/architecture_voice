@@ -1,18 +1,17 @@
-package com.josecheng.architecture_voice.view.friend.adapter;
+package com.josecheng.ft_home.view.friend.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.josecheng.architecture_video.vedioplayer.core.VideoAdContext;
-import com.josecheng.architecture_voice.R;
-import com.josecheng.architecture_voice.model.friend.FriendBodyValue;
-import com.josecheng.architecture_voice.utils.UserManager;
-import com.josecheng.lib_audio.app.AudioHelper;
+import com.josecheng.ft_home.R;
+import com.josecheng.ft_home.model.friend.FriendBodyValue;
+import com.josecheng.ft_home.utils.UserManager;
+import com.josecheng.lib_base.service.ft_audio.service.impl.AudioImpl;
 import com.josecheng.lib_common_ui.MultiImageViewLayout;
 import com.josecheng.lib_common_ui.recyclerview.MultiItemTypeAdapter;
 import com.josecheng.lib_common_ui.recyclerview.base.ItemViewDelegate;
@@ -96,7 +95,7 @@ public class FriendRecyclerAdapter extends MultiItemTypeAdapter {
                 @Override
                 public void onClick(View v) {
                     //调用播放器装饰类
-                    AudioHelper.addAudio((Activity) mContext, recommandBodyValue.audioBean);
+                    AudioImpl.getInstance().addAudio((Activity) mContext, recommandBodyValue.audioBean);
                 }
             });
             holder.setOnClickListener(R.id.guanzhu_view, new View.OnClickListener() {
@@ -147,7 +146,7 @@ public class FriendRecyclerAdapter extends MultiItemTypeAdapter {
                 @Override
                 public void onClick(View v) {
                     //调用播放器装饰类
-                    AudioHelper.addAudio((Activity) mContext, recommandBodyValue.audioBean);
+                    AudioImpl.getInstance().addAudio((Activity) mContext, recommandBodyValue.audioBean);
                 }
             });
             holder.setOnClickListener(R.id.guanzhu_view, new View.OnClickListener() {

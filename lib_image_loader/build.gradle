@@ -25,7 +25,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation this.rootProject.depsLibs.appcompat
+    compileOnly rootProject.depsLibs.appcompat
     //glide相关依赖
     implementation this.rootProject.depsLibs.glide
     annotationProcessor this.rootProject.depsLibs.glidecompiler

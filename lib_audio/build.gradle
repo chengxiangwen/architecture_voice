@@ -44,7 +44,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation this.rootProject.depsLibs.appcompat
+    compileOnly this.rootProject.depsLibs.appcompat
 
     //占位主工程的greenDao类库
     compileOnly rootProject.depsLibs.greendao

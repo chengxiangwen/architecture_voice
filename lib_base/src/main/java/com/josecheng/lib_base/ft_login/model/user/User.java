@@ -1,7 +1,7 @@
-package com.josecheng.lib_base.service.ft_login.model.user;
+package com.josecheng.lib_base.ft_login.model.user;
 
 
-import com.josecheng.lib_base.service.BaseModel;
+import com.josecheng.lib_base.BaseModel;
 
 /**
  * 用户数据协议

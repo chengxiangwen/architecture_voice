@@ -1,9 +1,9 @@
-package com.josecheng.lib_base.service.ft_home.service.impl;
+package com.josecheng.lib_base.ft_home.service.impl;
 
 import android.content.Context;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.josecheng.lib_base.service.ft_home.service.HomeService;
+import com.josecheng.lib_base.ft_home.service.HomeService;
 
 /**
  * 对HomeService的包装，使接口使用更方便

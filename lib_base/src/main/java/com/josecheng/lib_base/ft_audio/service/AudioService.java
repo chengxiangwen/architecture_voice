@@ -1,8 +1,8 @@
-package com.josecheng.lib_base.service.ft_audio.service;
+package com.josecheng.lib_base.ft_audio.service;
 
 import android.app.Activity;
 import com.alibaba.android.arouter.facade.template.IProvider;
-import com.josecheng.lib_base.service.ft_audio.model.CommonAudioBean;
+import com.josecheng.lib_base.ft_audio.model.CommonAudioBean;
 
 import java.util.ArrayList;
 

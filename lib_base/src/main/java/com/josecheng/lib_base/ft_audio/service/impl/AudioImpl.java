@@ -1,10 +1,10 @@
-package com.josecheng.lib_base.service.ft_audio.service.impl;
+package com.josecheng.lib_base.ft_audio.service.impl;
 
 import android.app.Activity;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.josecheng.lib_base.service.ft_audio.model.CommonAudioBean;
-import com.josecheng.lib_base.service.ft_audio.service.AudioService;
+import com.josecheng.lib_base.ft_audio.model.CommonAudioBean;
+import com.josecheng.lib_base.ft_audio.service.AudioService;
 
 import java.util.ArrayList;
 

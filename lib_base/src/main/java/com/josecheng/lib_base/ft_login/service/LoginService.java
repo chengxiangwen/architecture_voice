@@ -1,8 +1,8 @@
-package com.josecheng.lib_base.service.ft_login.service;
+package com.josecheng.lib_base.ft_login.service;
 
 import android.content.Context;
 import com.alibaba.android.arouter.facade.template.IProvider;
-import com.josecheng.lib_base.service.ft_login.model.user.User;
+import com.josecheng.lib_base.ft_login.model.user.User;
 
 /**
  * Login模块对外提供的所有功能

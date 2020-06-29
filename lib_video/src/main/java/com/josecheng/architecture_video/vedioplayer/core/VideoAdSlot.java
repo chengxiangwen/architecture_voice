@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.josecheng.architecture_video.vedioplayer.core.view.CustomVideoView;
 import com.josecheng.architecture_video.vedioplayer.core.view.VideoFullDialog;
-import com.josecheng.lib_base.service.ft_audio.service.AudioService;
+import com.josecheng.lib_base.ft_audio.service.AudioService;
 
 
 /**

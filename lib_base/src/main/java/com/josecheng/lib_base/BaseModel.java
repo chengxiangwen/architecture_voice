@@ -1,4 +1,4 @@
-package com.josecheng.lib_base.service;
+package com.josecheng.lib_base;
 
 import java.io.Serializable;
 

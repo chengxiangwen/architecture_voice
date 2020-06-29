@@ -1,4 +1,4 @@
-package com.josecheng.lib_base.service.ft_audio.model;
+package com.josecheng.lib_base.ft_audio.model;
 
 import java.io.Serializable;
 

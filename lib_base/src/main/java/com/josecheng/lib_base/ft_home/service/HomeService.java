@@ -1,6 +1,7 @@
-package com.josecheng.lib_base.service.ft_home.service;
+package com.josecheng.lib_base.ft_home.service;
 
 import android.content.Context;
+
 import com.alibaba.android.arouter.facade.template.IProvider;
 
 /**

@@ -6,10 +6,9 @@ import android.content.Context;
 import com.josecheng.lib_audio.mediaplayer.core.AudioController;
 import com.josecheng.lib_audio.mediaplayer.core.MusicService;
 import com.josecheng.lib_audio.mediaplayer.db.GreenDaoHelper;
-import com.josecheng.lib_audio.mediaplayer.model.AudioBean;
 import com.josecheng.lib_audio.mediaplayer.view.MusicPlayerActivity;
 import com.josecheng.lib_audio.utils.Utils;
-import com.josecheng.lib_base.service.ft_audio.model.CommonAudioBean;
+import com.josecheng.lib_base.ft_audio.model.CommonAudioBean;
 
 import java.util.ArrayList;
 

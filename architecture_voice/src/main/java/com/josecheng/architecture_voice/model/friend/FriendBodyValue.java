@@ -1,9 +1,8 @@
 package com.josecheng.architecture_voice.model.friend;
 
 import com.josecheng.lib_audio.mediaplayer.model.AudioBean;
-import com.josecheng.lib_base.service.BaseModel;
+import com.josecheng.lib_base.BaseModel;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**

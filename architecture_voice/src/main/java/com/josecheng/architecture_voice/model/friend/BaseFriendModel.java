@@ -1,9 +1,7 @@
 package com.josecheng.architecture_voice.model.friend;
 
 
-import com.josecheng.lib_base.service.BaseModel;
-
-import java.io.Serializable;
+import com.josecheng.lib_base.BaseModel;
 
 /**
  * Created by renzhiqiang on

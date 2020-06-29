@@ -11,7 +11,7 @@ import com.josecheng.architecture_video.vedioplayer.core.VideoAdContext;
 import com.josecheng.ft_home.R;
 import com.josecheng.ft_home.model.friend.FriendBodyValue;
 import com.josecheng.ft_home.utils.UserManager;
-import com.josecheng.lib_base.service.ft_audio.service.impl.AudioImpl;
+import com.josecheng.lib_base.ft_audio.service.impl.AudioImpl;
 import com.josecheng.lib_common_ui.MultiImageViewLayout;
 import com.josecheng.lib_common_ui.recyclerview.MultiItemTypeAdapter;
 import com.josecheng.lib_common_ui.recyclerview.base.ItemViewDelegate;

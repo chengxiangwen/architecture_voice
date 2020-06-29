@@ -6,8 +6,8 @@ import android.content.Context;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.josecheng.lib_audio.app.AudioHelper;
 import com.josecheng.lib_audio.mediaplayer.core.AudioController;
-import com.josecheng.lib_base.service.ft_audio.model.CommonAudioBean;
-import com.josecheng.lib_base.service.ft_audio.service.AudioService;
+import com.josecheng.lib_base.ft_audio.model.CommonAudioBean;
+import com.josecheng.lib_base.ft_audio.service.AudioService;
 
 import java.util.ArrayList;
 

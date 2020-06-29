@@ -17,7 +17,6 @@ import com.josecheng.lib_audio.mediaplayer.events.AudioPauseEvent;
 import com.josecheng.lib_audio.mediaplayer.events.AudioStartEvent;
 import com.josecheng.lib_audio.mediaplayer.model.AudioBean;
 import com.josecheng.lib_audio.mediaplayer.view.NotificationHelper;
-import com.josecheng.lib_base.service.ft_audio.model.CommonAudioBean;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

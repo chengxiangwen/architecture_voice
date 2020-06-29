@@ -1,7 +1,7 @@
 package com.josecheng.architecture_voice.utils;
 
 
-import com.josecheng.lib_base.service.ft_login.model.user.User;
+import com.josecheng.lib_base.ft_login.model.user.User;
 
 public class UserManager {
     private static UserManager mInstance;

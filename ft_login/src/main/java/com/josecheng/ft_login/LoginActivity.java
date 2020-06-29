@@ -7,16 +7,9 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import com.josecheng.ft_login.api.RequestCenter;
 import com.josecheng.ft_login.inter.IUserLoginView;
-import com.josecheng.ft_login.manager.UserManager;
 import com.josecheng.ft_login.presenter.UserLoginPresenter;
-import com.josecheng.lib_base.service.ft_login.model.LoginEvent;
-import com.josecheng.lib_base.service.ft_login.model.user.User;
 import com.josecheng.lib_common_ui.base.BaseActivity;
-import com.josecheng.lib_network.listener.DisposeDataListener;
-
-import org.greenrobot.eventbus.EventBus;
 
 /**
  * 登录页面

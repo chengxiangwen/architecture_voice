@@ -1,7 +1,7 @@
 package com.josecheng.ft_home.model.friend;
 
-import com.josecheng.lib_base.service.BaseModel;
-import com.josecheng.lib_base.service.ft_audio.model.CommonAudioBean;
+import com.josecheng.lib_base.BaseModel;
+import com.josecheng.lib_base.ft_audio.model.CommonAudioBean;
 
 import java.util.ArrayList;
 

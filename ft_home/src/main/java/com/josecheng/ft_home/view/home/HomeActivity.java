@@ -18,10 +18,10 @@ import com.josecheng.ft_home.R;
 import com.josecheng.ft_home.constant.Constant;
 import com.josecheng.ft_home.model.CHANNEL;
 import com.josecheng.ft_home.view.home.adapter.HomePagerAdapter;
-import com.josecheng.lib_base.service.ft_audio.model.CommonAudioBean;
-import com.josecheng.lib_base.service.ft_audio.service.impl.AudioImpl;
-import com.josecheng.lib_base.service.ft_login.model.LoginEvent;
-import com.josecheng.lib_base.service.ft_login.service.impl.LoginImpl;
+import com.josecheng.lib_base.ft_audio.model.CommonAudioBean;
+import com.josecheng.lib_base.ft_audio.service.impl.AudioImpl;
+import com.josecheng.lib_base.ft_login.model.LoginEvent;
+import com.josecheng.lib_base.ft_login.service.impl.LoginImpl;
 import com.josecheng.lib_common_ui.base.BaseActivity;
 import com.josecheng.lib_image_loader.app.ImageLoaderManager;
 

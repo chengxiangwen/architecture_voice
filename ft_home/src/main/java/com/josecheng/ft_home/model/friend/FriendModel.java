@@ -1,6 +1,6 @@
 package com.josecheng.ft_home.model.friend;
 
-import com.josecheng.lib_base.service.BaseModel;
+import com.josecheng.lib_base.BaseModel;
 
 import java.util.ArrayList;
 

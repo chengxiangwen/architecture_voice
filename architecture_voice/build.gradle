@@ -7,12 +7,13 @@ android {
     buildToolsVersion rootProject.android.buildToolsVersion
 
     defaultConfig {
-        applicationId rootProject.android.applicationId
+        // ATTENTION!!! Must CONFIG this to accord with Gradle's standard, and avoid some error
+        applicationId rootProject.android.applicationId //与包名一致
         minSdkVersion rootProject.android.minSdkVersion
         targetSdkVersion rootProject.android.targetSdkVersion
         versionCode rootProject.android.versionCode
         versionName rootProject.android.versionName
-        multiDexEnabled rootProject.android.multiDexEnabled
+        multiDexEnabled false //插件化不需要分包
 
         //ARouter配置
         javaCompileOptions {
@@ -88,4 +89,26 @@ dependencies {
     //loading模块
     implementation project(':ft_loading')
 
+}
+
+// ATTENTION!!! Must be PLACED AFTER "android{}" to read the applicationId
+//引用replugin-host-gradle插件
+apply plugin: 'replugin-host-gradle'
+
+/**
+ * 配置项均为可选配置，默认无需添加
+ * 更多可选配置项参见replugin-host-gradle的RepluginConfig类
+ * 可更改配置项参见 自动生成RePluginHostConfig.java
+ */
+repluginHostConfig {
+    /**
+     * 是否使用 AppCompat 库
+     * 不需要个性化配置时，无需添加
+     * 使插件能够使用android各种兼容库
+     */
+    useAppCompat = true
+}
+
+dependencies {
+    implementation 'com.qihoo360.replugin:replugin-host-lib:2.3.3'
 }

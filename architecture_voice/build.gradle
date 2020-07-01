@@ -69,7 +69,7 @@ dependencies {
     //图片加载库
     implementation project(':lib_image_loader')
     //音频播放器组
-    implementation project(':lib_audio')
+    implementation project(':ft_audio')
     //视频播放器组
     implementation project(':lib_video')
     //分享

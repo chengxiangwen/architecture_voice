@@ -9,6 +9,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.josecheng.architecture_video.vedioplayer.core.view.CustomVideoView;
 import com.josecheng.architecture_video.vedioplayer.core.view.VideoFullDialog;
 import com.josecheng.lib_base.ft_audio.service.AudioService;
+import com.josecheng.lib_base.ft_audio.service.impl.AudioImpl;
 
 
 /**
@@ -28,8 +29,8 @@ public class VideoAdSlot implements CustomVideoView.ADVideoPlayerListener {
     private String mVedioUrl;
 
     private SDKSlotListener mSlotListener;
-    @Autowired(name = "/audio/audio_service")
-    protected AudioService mAudioService;
+//    @Autowired(name = "/audio/audio_service")
+//    protected AudioService mAudioService;
 
     public VideoAdSlot(String vedioUrl, SDKSlotListener slotLitener) {
         ARouter.getInstance().inject(this);
@@ -110,7 +111,8 @@ public class VideoAdSlot implements CustomVideoView.ADVideoPlayerListener {
         dialog.setSlotListener(mSlotListener);
         dialog.show();
         //全屏暂停音乐播放
-        mAudioService.pauseAudio();
+        //mAudioService.pauseAudio();
+        AudioImpl.getInstance().pauseAudio();
     }
 
     /**
@@ -127,7 +129,8 @@ public class VideoAdSlot implements CustomVideoView.ADVideoPlayerListener {
         mVideoView.setListener(this);
         mVideoView.seekAndResume(position);
         //小屏恢复音乐播放
-        mAudioService.resumeAudio();
+        //mAudioService.resumeAudio();
+        AudioImpl.getInstance().resumeAudio();
     }
 
     /**

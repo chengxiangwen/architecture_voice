@@ -1,6 +1,6 @@
 include ':architecture_voice', ':ft_login', ':ft_home', ':ft_loading'
 
-include ':lib_audio'
+include ':ft_audio'
 
 include  ':lib_video'
 

@@ -31,6 +31,8 @@ buildscript {
         classpath "com.alibaba:arouter-register:1.0.2"
         //replugin宿主插件
         classpath 'com.qihoo360.replugin:replugin-host-gradle:2.3.3'
+        //replugin插件库
+        classpath 'com.qihoo360.replugin:replugin-plugin-gradle:2.3.3'
     }
 }
 

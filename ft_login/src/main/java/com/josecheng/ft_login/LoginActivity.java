@@ -9,12 +9,12 @@ import androidx.annotation.Nullable;
 
 import com.josecheng.ft_login.inter.IUserLoginView;
 import com.josecheng.ft_login.presenter.UserLoginPresenter;
-import com.josecheng.lib_common_ui.base.BaseActivity;
+import com.josecheng.lib_common_ui.base.plugin.PluginBaseActivity;
 
 /**
  * 登录页面
  */
-public class LoginActivity extends BaseActivity implements IUserLoginView {
+public class LoginActivity extends PluginBaseActivity implements IUserLoginView {
 
     private UserLoginPresenter mUserLoginPresenter;
 
@@ -28,7 +28,7 @@ public class LoginActivity extends BaseActivity implements IUserLoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_layout);
         //初始化P层
-        mUserLoginPresenter = new UserLoginPresenter(this);
+        mUserLoginPresenter = new UserLoginPresenter(this,LoginActivity.this);
         findViewById(R.id.login_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

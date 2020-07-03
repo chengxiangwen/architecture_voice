@@ -1,23 +1,21 @@
-package com.josecheng.lib_common_ui.base;
+package com.josecheng.lib_common_ui.base.plugin;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
-
 
 import com.josecheng.lib_common_ui.base.constant.Constant;
 import com.josecheng.lib_common_ui.utils.StatusBarUtil;
+import com.qihoo360.replugin.loader.a.PluginFragmentActivity;
 
 /**
- * 所有宿主activity父类
+ * 插件对应的基础activity
  */
-public class BaseActivity extends FragmentActivity {
+public class PluginBaseActivity extends PluginFragmentActivity {
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StatusBarUtil.statusBarLightMode(this);
     }

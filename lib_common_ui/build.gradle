@@ -41,7 +41,7 @@ dependencies {
     compileOnly rootProject.depsLibs.recyclerview
     //可以用arouter去掉此依赖
     compileOnly project(':lib_image_loader')
-
+    compileOnly 'com.qihoo360.replugin:replugin-plugin-lib:2.3.3'
 }
 uploadArchives {
     repositories {

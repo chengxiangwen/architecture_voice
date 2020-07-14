@@ -3,7 +3,7 @@ package com.josecheng.lib_base.ft_login.service.impl;
 import android.content.Context;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.josecheng.lib_base.ft_login.model.user.User;
+import com.josecheng.lib_base.service.login.user.User;
 import com.josecheng.lib_base.ft_login.service.LoginService;
 
 /**

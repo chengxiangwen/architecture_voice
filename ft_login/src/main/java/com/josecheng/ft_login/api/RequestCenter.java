@@ -1,6 +1,6 @@
 package com.josecheng.ft_login.api;
 
-import com.josecheng.lib_base.ft_login.model.user.User;
+import com.josecheng.lib_base.service.login.user.User;
 import com.josecheng.lib_network.CommonOkHttpClient;
 import com.josecheng.lib_network.listener.DisposeDataHandle;
 import com.josecheng.lib_network.listener.DisposeDataListener;

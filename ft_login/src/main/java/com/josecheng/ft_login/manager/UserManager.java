@@ -1,7 +1,7 @@
 package com.josecheng.ft_login.manager;
 
 
-import com.josecheng.lib_base.ft_login.model.user.User;
+import com.josecheng.lib_base.service.login.user.User;
 
 public class UserManager {
     private static UserManager mInstance;

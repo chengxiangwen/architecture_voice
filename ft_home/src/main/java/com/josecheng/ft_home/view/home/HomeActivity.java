@@ -1,11 +1,14 @@
 package com.josecheng.ft_home.view.home;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.os.IBinder;
+import android.os.RemoteException;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,16 +17,21 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.google.gson.Gson;
 import com.josecheng.ft_home.R;
 import com.josecheng.ft_home.constant.Constant;
 import com.josecheng.ft_home.model.CHANNEL;
 import com.josecheng.ft_home.view.home.adapter.HomePagerAdapter;
 import com.josecheng.lib_base.ft_audio.model.CommonAudioBean;
 import com.josecheng.lib_base.ft_audio.service.impl.AudioImpl;
+import com.josecheng.lib_base.ft_login.LoginPluginConfig;
 import com.josecheng.lib_base.ft_login.model.LoginEvent;
+import com.josecheng.lib_base.service.login.ILoginService;
+import com.josecheng.lib_base.service.login.user.User;
 import com.josecheng.lib_base.ft_login.service.impl.LoginImpl;
-import com.josecheng.lib_common_ui.base.BaseActivity;
+import com.josecheng.lib_common_ui.base.plugin.PluginBaseActivity;
 import com.josecheng.lib_image_loader.app.ImageLoaderManager;
+import com.qihoo360.replugin.RePlugin;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -33,13 +41,12 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerInd
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
 
-import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends BaseActivity implements View.OnClickListener {
+public class HomeActivity extends PluginBaseActivity implements View.OnClickListener {
 
     public static void start(Context context) {
         Intent intent = new Intent(context, HomeActivity.class);
@@ -58,6 +65,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout unLogginLayout;
     private ImageView avatrImageView;
 
+    private UserBroadcastReceiver mUserBroadcastReceiver;
+
     /*
      * data
      */
@@ -65,8 +74,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        registerUserReceiver();
         setContentView(R.layout.activity_home);
-        EventBus.getDefault().register(this);
+        //EventBus.getDefault().register(this);
         initView();
         initData();
 
@@ -158,10 +168,26 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.unloggin_layout) {
-            if (!LoginImpl.getInstance().hasLogin()) {
-                LoginImpl.getInstance().login(this);
-            } else {
-                mDrawLayout.closeDrawer(Gravity.LEFT);
+//            if (!LoginImpl.getInstance().hasLogin()) {
+//                LoginImpl.getInstance().login(this);
+//            } else {
+//                mDrawLayout.closeDrawer(Gravity.LEFT);
+//            }
+            //获取对应插件的Ibinder
+            IBinder iBinder = RePlugin.fetchBinder(LoginPluginConfig.PLUGIN_NAME,LoginPluginConfig.KEY_INTERFACE);
+            if (iBinder==null){
+                return;
+            }
+            //拿到，进行强转
+            ILoginService loginService = ILoginService.Stub.asInterface(iBinder);
+            try {
+                if (!loginService.hasLogin()){
+                    Intent intent = RePlugin.createIntent(LoginPluginConfig.PLUGIN_NAME,LoginPluginConfig.PAGE.PAGE_LOGIN);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                     RePlugin.startActivity(this,intent);
+                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
         } else if (id == R.id.home_qrcode) {
             if (hasPermission(Constant.HARDWEAR_CAMERA_PERMISSION)) {
@@ -204,6 +230,42 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(HomeActivity.this);
+        unRegisterUserReceiver();
+        //EventBus.getDefault().unregister(HomeActivity.this);
+    }
+
+    private void registerUserReceiver(){
+        if (mUserBroadcastReceiver == null){
+            mUserBroadcastReceiver = new UserBroadcastReceiver();
+        }
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(LoginPluginConfig.ACTION.LOGIN_SUCCESS_ACTION);
+        registerReceiver(mUserBroadcastReceiver,filter);
+    }
+
+    private void unRegisterUserReceiver(){
+        if (mUserBroadcastReceiver != null){
+            unregisterReceiver(mUserBroadcastReceiver);
+        }
+    }
+
+    private void updateLoginUI(String data) {
+        unLogginLayout.setVisibility(View.GONE);
+        avatrImageView.setVisibility(View.VISIBLE);
+        ImageLoaderManager.getInstance()
+                .displayImageForCircle(avatrImageView,
+                        new Gson().fromJson(data,User.class).data.photoUrl);
+    }
+
+    private class UserBroadcastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (action != null && action.equals(LoginPluginConfig.ACTION.LOGIN_SUCCESS_ACTION)){
+                updateLoginUI(intent.getStringExtra(LoginPluginConfig.ACTION.KEY_DATA));
+            }
+        }
+
     }
 }

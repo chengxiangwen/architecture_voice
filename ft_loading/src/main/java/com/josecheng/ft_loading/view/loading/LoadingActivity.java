@@ -1,5 +1,6 @@
 package com.josecheng.ft_loading.view.loading;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,18 +8,23 @@ import android.os.Message;
 
 
 import com.josecheng.ft_loading.R;
-import com.josecheng.lib_base.ft_home.service.impl.HomeImpl;
+import com.josecheng.lib_base.ft_home.HomePluginConfig;
 import com.josecheng.lib_common_ui.base.BaseActivity;
 import com.josecheng.lib_common_ui.base.constant.Constant;
 import com.josecheng.lib_pullalive.app.AliveJobService;
+import com.qihoo360.replugin.RePlugin;
 
 public class LoadingActivity extends BaseActivity {
 
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            HomeImpl.getInstance().startHomActivity(LoadingActivity.this);
+            //HomeImpl.getInstance().startHomActivity(LoadingActivity.this);
             //startActivity(new Intent(LoadingActivity.this, HomeActivity.class));
+            Intent intent = RePlugin.createIntent(HomePluginConfig.PLUGIN_NAME,HomePluginConfig.PAGE.PAGE_LOGIN);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            RePlugin.startActivity(LoadingActivity.this,intent);
             finish();
         }
     };
